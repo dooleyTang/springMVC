@@ -19,17 +19,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="/mvc/js/jquery-3.3.1.js"></script>
 	<script type="text/javascript">
 		$(function(){
-	
+			var jsonData={
+					'userId':1,
+					'username':'发',
+			}
+			var jsonString= JSON.stringify(jsonData);
 			$.ajax({
 				'type':'POST',
-				'url':'user/adduser',
-				'data':{
-					'userId':1,
-					'username':'xu',
-				},
+				'url':'adduser',
+				'data':jsonString,
 				'success':function(){
 					alert('数据发送')
 				},

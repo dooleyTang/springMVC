@@ -3,6 +3,8 @@ package com.bwf.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,17 +35,17 @@ public class UserController {
 		
 		return"user/add";
 	}
-	@RequestMapping(value="adduser" ,
-			method=RequestMethod.POST ,
+
+	@PostMapping(value="adduser" ,
 			consumes="application/json"
 			)
-
 	public void adduser(@RequestBody User user){
 		System.out.println("adduser");
 		System.out.println(user);
 	}
 	
-	@RequestMapping(value="addAjax",method=RequestMethod.GET)
+	
+	@GetMapping(value="addAjax")
 	public String userAjax(){
 		return "user/addAjax";
 	}
